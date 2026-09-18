@@ -82,4 +82,9 @@ with gr.Blocks(title="Bottle Defect Classifier") as demo:
 
 
 if __name__ == "__main__":
-    demo.launch()
+    # Render (and most cloud hosts) assign a port via the PORT environment
+    # variable and require the app to listen on 0.0.0.0 to be reachable
+    # from outside the container. Falls back to Gradio's local default
+    # (127.0.0.1:7860) when PORT isn't set, so this still works locally.
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(server_name="0.0.0.0", server_port=port)

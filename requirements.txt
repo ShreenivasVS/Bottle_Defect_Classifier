@@ -1,0 +1,6 @@
+gradio
+joblib
+scikit-learn
+scikit-image
+pillow
+numpy
